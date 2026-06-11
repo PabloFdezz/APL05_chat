@@ -12,10 +12,10 @@ MIEMBRO 1
   Correo electronico:   ________________________________
 
 MIEMBRO 2
-  Apellidos:            ________________________________
-  Nombre:               ________________________________
-  DNI:                  ________________________________
-  Numero de matricula:  ________________________________
-  Correo electronico:   ________________________________
+  Apellidos:            Myrick Ruiz
+  Nombre:               Pablo Agustín
+  DNI:                  71370364F
+  Numero de matricula:  220247
+  Correo electronico:   pabloagustin.myrick@alumnos.upm.es
 
 ===============================================================

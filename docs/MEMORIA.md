@@ -1,9 +1,7 @@
 # MEMORIA – APL05: Servicio Conversacional Multiusuario
 
-**Asignatura:** Ingeniería de Protocolos de Comunicaciones
-**Trabajo:** APL05 – Servicio conversacional "chat" multiusuario
-**Dificultad estimada:** B/C
-**Lenguaje:** C++ (C++17) · **SO:** Windows · **Librería:** `ws2_32.lib` (Winsock 2)
+Pablo Fernández Hernando
+Pablo Agustín Myrick Ruiz
 
 ---
 
@@ -32,7 +30,7 @@ que recibe de cualquiera de ellos. Toda la comunicación se realiza sobre **UDP*
 ### 1.2 Naturaleza del servicio
 
 El servidor actúa como **retransmisor sin estado de conversación**: no interpreta el
-contenido de los mensajes, sólo los reenvía. El servicio que ofrece es:
+contenido   de los mensajes, sólo los reenvía. El servicio que ofrece es:
 
 1. **Registro** de usuarios (alta en la tabla).
 2. **Difusión** de mensajes a todos los registrados, con **asentimiento** al emisor.
@@ -193,7 +191,7 @@ consecutivos). Por eso cada cliente reserva un hueco de **2 puertos** (50000/500
 
 ### 2.4 Uso del cliente
 
-- Escribe un texto y pulsa **ENTER** para enviarlo al chat. El cliente muestra
+- Escribir un texto y pulsar **ENTER** para enviarlo al chat. El cliente muestra
   `[MSG TX] intento N`, y `[ACK RX]` cuando el servidor confirma. Si no llega el ACK,
   muestra `[TIMEOUT]` y reintenta (hasta 3 veces).
 - Los mensajes de otros usuarios aparecen como `[usuario #id] texto`.
@@ -221,22 +219,16 @@ consecutivos). Por eso cada cliente reserva un hueco de **2 puertos** (50000/500
 | `/quit` | El usuario desaparece de la tabla del servidor |
 | Servidor con `drop_ack_percent=50` | El cliente muestra `[TIMEOUT]` y reintenta |
 
-*(Se recomienda adjuntar capturas de pantalla de estas pruebas en la entrega final.)*
-
 ---
 
 ## 4. Conclusiones
 
-Se ha implementado el servicio conversacional multiusuario APL05 cumpliendo los
-requisitos del enunciado: protocolo UDP, dos sockets consecutivos por usuario, entidad
-retransmisora multiservicio iterativa con `select()`, tabla de usuarios, difusión a
-todos los registrados y asentimiento al emisor. Adicionalmente se ha añadido un
-mecanismo de **fiabilidad (timeout + reintentos)** sobre UDP y una **simulación de
-pérdida de ACKs** para demostrarlo, **deduplicación** en el servidor para que esos
-reenvíos no produzcan mensajes repetidos, **avisos de presencia** (altas y bajas) y
-los comandos `/list` y `/quit`.
+En este proyecto hemos implementado el servicio conversacional multiusuario
+mediante protocolo UDP, dos sockets consecutivos por usuario, entidad retransmisora
+multiservicio iterativa con `select()`, tabla de usuarios, difusión a todos
+los registrados y asentimiento al emisor. Además, hemos añadido un mecanismo
+de **fiabilidad (timeout + reintentos)** sobre UDP y una **simulación de pérdida
+de ACKs** para demostrarlo, **deduplicación** en el servidor para que esos reenvíos
+no produzcan mensajes repetidos, **avisos de presencia** (altas y bajas) y los
+comandos `/list` y `/quit`.
 
-### Líneas de mejora (opcionales)
-
-- **Timestamps** en los mensajes.
-- **Logs a fichero** además de la salida por consola.
